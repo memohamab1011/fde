@@ -93,6 +93,20 @@
     button:hover {
       background-color: #0056b3;
     }
+
+    .confirmation-message {
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #777;
+    }
   </style>
 </head>
 <body>
@@ -109,13 +123,27 @@
 
   <div class="form-section">
     <h2>Send Us a Message</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
+    <form action="https://formsubmit.co/ghrabedhalgaga@gmail.com" method="POST" onsubmit="showConfirmation()">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="hidden" name="_captcha" value="false">
       <button type="submit">Send</button>
     </form>
+    <div class="confirmation-message" id="confirmation">Thank you! Your message has been sent.</div>
   </div>
+
+  <div class="footer">
+    Designed by: Mohammad ---- Aws
+  </div>
+
+  <script>
+    function showConfirmation() {
+      setTimeout(() => {
+        document.getElementById('confirmation').style.display = 'block';
+      }, 500);
+    }
+  </script>
 
 </body>
 </html>
